@@ -52,8 +52,6 @@
     letter-spacing: -0.5px;
   }
 
-  .nav-logo span { color: var(--accent2); }
-
   .nav-links {
     display: flex; gap: 0.5rem;
   }
@@ -173,7 +171,6 @@
 
   .stat-chip .lbl { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.2rem; }
 
-  /* Overall attendance ring */
   .attendance-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -190,7 +187,6 @@
   }
 
   .ring-wrap { position: relative; display: inline-block; margin-bottom: 1rem; }
-
   .ring-wrap svg { transform: rotate(-90deg); }
 
   .ring-center {
@@ -207,7 +203,6 @@
 
   .ring-center .sub { font-size: 0.65rem; color: var(--text-dim); }
 
-  /* Subject cards */
   .section-title {
     font-family: 'Syne', sans-serif;
     font-size: 1.1rem; font-weight: 700;
@@ -230,12 +225,6 @@
     transition: all 0.25s;
     cursor: pointer;
     position: relative; overflow: hidden;
-  }
-
-  .subject-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    border-radius: 16px 16px 0 0;
   }
 
   .subject-card:hover {
@@ -261,10 +250,7 @@
     font-size: 1.4rem; font-weight: 800;
   }
 
-  .subj-name {
-    font-size: 0.9rem; font-weight: 500; margin-bottom: 0.15rem;
-  }
-
+  .subj-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.15rem; }
   .subj-meta { font-size: 0.72rem; color: var(--text-dim); }
 
   .progress-bar {
@@ -284,9 +270,7 @@
     padding: 2.5rem 2.5rem;
   }
 
-  .page-header {
-    margin-bottom: 2rem;
-  }
+  .page-header { margin-bottom: 2rem; }
 
   .page-header h2 {
     font-family: 'Syne', sans-serif;
@@ -318,7 +302,6 @@
   tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: rgba(108,99,255,0.06); }
-
   tbody td { padding: 0.9rem 1.4rem; font-size: 0.88rem; }
 
   .badge {
@@ -377,9 +360,7 @@
     padding: 0.1rem 0.4rem; border-radius: 99px;
   }
 
-  .chat-main {
-    display: flex; flex-direction: column;
-  }
+  .chat-main { display: flex; flex-direction: column; }
 
   .chat-topbar {
     padding: 1rem 1.5rem;
@@ -500,11 +481,7 @@
     font-size: 1.4rem; margin-bottom: 1rem;
   }
 
-  .tool-card h3 {
-    font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    margin-bottom: 0.4rem;
-  }
-
+  .tool-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
   .tool-card p { font-size: 0.82rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 1.2rem; }
 
   .tool-tag {
@@ -524,7 +501,7 @@
     transition: all 0.2s;
   }
 
-  /* ─── AI CHAT ASSISTANT (tool page) ─── */
+  /* ─── AI CHAT ASSISTANT ─── */
   .ai-chat-box {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -580,19 +557,317 @@
 
   .ai-send:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(108,99,255,0.4); }
 
-  /* scrollbar */
+  /* ═══════════════════════════════════════
+     CALENDAR PAGE STYLES
+  ═══════════════════════════════════════ */
+
+  .calendar-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2.5rem;
+  }
+
+  /* Month nav */
+  .cal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .cal-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem; font-weight: 800;
+  }
+
+  .cal-nav-btns { display: flex; gap: 0.5rem; }
+
+  .cal-nav-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text-dim);
+    font-size: 1rem; transition: all 0.2s;
+  }
+
+  .cal-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Weekday headers */
+  .cal-grid {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .cal-weekdays {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cal-wd {
+    padding: 0.75rem 0;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--text-dim);
+  }
+
+  .cal-days {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+  }
+
+  .cal-day {
+    min-height: 90px;
+    padding: 0.5rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+
+  .cal-day:nth-child(7n) { border-right: none; }
+
+  .cal-day:hover { background: rgba(108,99,255,0.06); }
+
+  .cal-day.today { background: rgba(108,99,255,0.08); }
+  .cal-day.today .day-num { background: var(--accent); color: #fff; border-radius: 50%; }
+
+  .cal-day.selected { background: rgba(108,99,255,0.12); }
+  .cal-day.other-month .day-num { color: var(--text-muted); }
+
+  .day-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem; font-weight: 700;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .cal-event {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    margin-bottom: 0.2rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .ev-purple { background: rgba(108,99,255,0.2); color: #a78bfa; }
+  .ev-green  { background: rgba(0,212,170,0.15); color: #00d4aa; }
+  .ev-yellow { background: rgba(255,209,102,0.15); color: #ffd166; }
+  .ev-red    { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+  .ev-blue   { background: rgba(56,189,248,0.15); color: #38bdf8; }
+
+  /* ─── SIDEBAR PANELS ─── */
+  .cal-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  /* Mini calendar */
+  .mini-cal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem;
+  }
+
+  .mini-cal h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    margin-bottom: 1rem; color: var(--text);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .mini-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 2px; text-align: center;
+  }
+
+  .mini-wd {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.6rem; font-weight: 700;
+    color: var(--text-muted); padding: 0.2rem 0;
+  }
+
+  .mini-day {
+    font-size: 0.72rem; padding: 0.25rem 0;
+    border-radius: 6px; cursor: pointer;
+    color: var(--text-dim); transition: all 0.15s;
+    line-height: 1.6;
+  }
+
+  .mini-day:hover { background: rgba(108,99,255,0.15); color: var(--accent); }
+  .mini-day.today { background: var(--accent); color: #fff; border-radius: 50%; }
+  .mini-day.other { color: var(--text-muted); }
+  .mini-day.has-event { position: relative; }
+  .mini-day.has-event::after {
+    content: '';
+    display: block;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent2);
+    margin: 0 auto;
+  }
+
+  /* Events list */
+  .events-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.2rem;
+    flex: 1;
+  }
+
+  .events-panel h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    margin-bottom: 1rem; color: var(--text);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .event-item {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    padding: 0.75rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .event-item:hover { border-color: rgba(108,99,255,0.3); background: rgba(108,99,255,0.05); }
+
+  .event-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .event-info .ev-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    margin-bottom: 0.15rem;
+  }
+
+  .event-info .ev-time {
+    font-size: 0.7rem; color: var(--text-dim);
+  }
+
+  .add-event-btn {
+    width: 100%;
+    background: rgba(108,99,255,0.1);
+    border: 1px dashed rgba(108,99,255,0.3);
+    border-radius: 10px;
+    padding: 0.65rem;
+    color: var(--accent);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .add-event-btn:hover { background: rgba(108,99,255,0.18); border-style: solid; }
+
+  /* Legend */
+  .cal-legend {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+  }
+
+  .legend-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.72rem; color: var(--text-dim);
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+
+  /* Add event modal */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 420px;
+    transform: translateY(20px); transition: transform 0.25s;
+  }
+
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal h3 {
+    font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--text-dim); margin-bottom: 0.4rem;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 0.86rem;
+    outline: none; transition: border-color 0.2s;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group select option { background: #1a1d26; }
+
+  .color-options { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .color-opt {
+    width: 28px; height: 28px; border-radius: 50%;
+    cursor: pointer; border: 2px solid transparent;
+    transition: all 0.15s;
+  }
+
+  .color-opt:hover, .color-opt.selected { border-color: #fff; transform: scale(1.1); }
+
+  .modal-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; justify-content: flex-end; }
+
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
 
-  /* responsive fixes */
+  .divider { height: 1px; background: var(--border); margin: 0 2.5rem 2rem; }
+
   @media(max-width: 768px) {
     .hero { grid-template-columns: 1fr; }
     .chat-layout { grid-template-columns: 1fr; }
     .chat-sidebar { display: none; }
+    .calendar-layout { grid-template-columns: 1fr; }
   }
-
-  .divider { height: 1px; background: var(--border); margin: 0 2.5rem 2rem; }
 </style>
 </head>
 <body>
@@ -603,6 +878,7 @@
   <div class="nav-links">
     <a onclick="showPage('dashboard')" id="nav-dashboard" class="active">🏠 Dashboard</a>
     <a onclick="showPage('attendance')" id="nav-attendance">📅 Attendance</a>
+    <a onclick="showPage('calendar')" id="nav-calendar">🗓️ Calendar</a>
     <a onclick="showPage('chat')" id="nav-chat">💬 Community Chat</a>
     <a onclick="showPage('aitools')" id="nav-aitools">🤖 AI Tools</a>
   </div>
@@ -618,30 +894,16 @@
 <div class="page active" id="page-dashboard">
   <div class="hero">
     <div>
-      <div class="welcome-tag">✦ Welcome back, Arjun 👋</div>
+      <div class="welcome-tag">✦ Welcome back, Eswar 👋</div>
       <h1>Your Learning<br><span>Hub is Live</span></h1>
       <p>Track your attendance, engage with peers, and supercharge your study sessions with AI-powered tools — all in one place.</p>
       <div class="stats-row">
-        <div class="stat-chip">
-          <div class="val">6</div>
-          <div class="lbl">Subjects</div>
-        </div>
-        <div class="stat-chip">
-          <div class="val">248</div>
-          <div class="lbl">Members</div>
-        </div>
-        <div class="stat-chip">
-          <div class="val">82%</div>
-          <div class="lbl">Avg Attendance</div>
-        </div>
-        <div class="stat-chip">
-          <div class="val">12</div>
-          <div class="lbl">AI Tools</div>
-        </div>
+        <div class="stat-chip"><div class="val">6</div><div class="lbl">Subjects</div></div>
+        <div class="stat-chip"><div class="val">248</div><div class="lbl">Members</div></div>
+        <div class="stat-chip"><div class="val">82%</div><div class="lbl">Avg Attendance</div></div>
+        <div class="stat-chip"><div class="val">12</div><div class="lbl">AI Tools</div></div>
       </div>
     </div>
-
-    <!-- Ring chart -->
     <div class="attendance-card">
       <h3>Overall Attendance</h3>
       <div class="ring-wrap">
@@ -672,8 +934,7 @@
   </div>
 
   <div class="subjects-grid">
-
-    <div class="subject-card" style="--c:#6c63ff">
+    <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6c63ff,#8b84ff);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
         <div class="subj-icon" style="background:rgba(108,99,255,0.15);">🧮</div>
@@ -683,7 +944,6 @@
       <div class="subj-meta">44/50 classes attended · Prof. Sharma</div>
       <div class="progress-bar"><div class="progress-fill" style="width:88%;background:linear-gradient(90deg,#6c63ff,#8b84ff)"></div></div>
     </div>
-
     <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00d4aa,#00b890);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
@@ -694,7 +954,6 @@
       <div class="subj-meta">46/50 classes attended · Prof. Reddy</div>
       <div class="progress-bar"><div class="progress-fill" style="width:92%;background:linear-gradient(90deg,#00d4aa,#00b890)"></div></div>
     </div>
-
     <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ffd166,#ffb830);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
@@ -705,7 +964,6 @@
       <div class="subj-meta">38/50 classes attended · Prof. Nair</div>
       <div class="progress-bar"><div class="progress-fill" style="width:75%;background:linear-gradient(90deg,#ffd166,#ffb830)"></div></div>
     </div>
-
     <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ff6b6b,#ff4848);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
@@ -716,7 +974,6 @@
       <div class="subj-meta">34/50 classes attended · Prof. Verma</div>
       <div class="progress-bar"><div class="progress-fill" style="width:68%;background:linear-gradient(90deg,#ff6b6b,#ff4848)"></div></div>
     </div>
-
     <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#a78bfa,#7c3aed);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
@@ -727,7 +984,6 @@
       <div class="subj-meta">40/50 classes attended · Prof. Pillai</div>
       <div class="progress-bar"><div class="progress-fill" style="width:80%;background:linear-gradient(90deg,#a78bfa,#7c3aed)"></div></div>
     </div>
-
     <div class="subject-card">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#38bdf8,#0ea5e9);border-radius:16px 16px 0 0"></div>
       <div class="subj-header">
@@ -738,7 +994,6 @@
       <div class="subj-meta">43/50 classes attended · Prof. Iyer</div>
       <div class="progress-bar"><div class="progress-fill" style="width:85%;background:linear-gradient(90deg,#38bdf8,#0ea5e9)"></div></div>
     </div>
-
   </div>
 </div>
 
@@ -751,178 +1006,65 @@
       <h2>📅 Attendance Tracker</h2>
       <p>Detailed view of your class attendance across all subjects this semester</p>
     </div>
-
-    <!-- Summary chips -->
     <div style="display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap">
       <div class="stat-chip"><div class="val" style="color:#00d4aa">245</div><div class="lbl">Total Classes</div></div>
       <div class="stat-chip"><div class="val" style="color:#6c63ff">201</div><div class="lbl">Attended</div></div>
       <div class="stat-chip"><div class="val" style="color:#ff6b6b">44</div><div class="lbl">Missed</div></div>
       <div class="stat-chip"><div class="val" style="color:#ffd166">82%</div><div class="lbl">Overall %</div></div>
     </div>
-
     <div class="att-table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Subject</th>
-            <th>Faculty</th>
-            <th>Total Classes</th>
-            <th>Attended</th>
-            <th>Missed</th>
-            <th>Percentage</th>
-            <th>Status</th>
+            <th>Subject</th><th>Faculty</th><th>Total Classes</th><th>Attended</th><th>Missed</th><th>Percentage</th><th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">🧮</span>
-                <div>
-                  <div style="font-weight:500">Data Structures & Algorithms</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-301</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Sharma</td>
-            <td>50</td>
-            <td style="color:#00d4aa;font-weight:600">44</td>
-            <td style="color:#ff6b6b">6</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:88%;height:100%;background:linear-gradient(90deg,#6c63ff,#8b84ff);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#6c63ff">88%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">🧮</span><div><div style="font-weight:500">Data Structures & Algorithms</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-301</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Sharma</td><td>50</td>
+            <td style="color:#00d4aa;font-weight:600">44</td><td style="color:#ff6b6b">6</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:88%;height:100%;background:linear-gradient(90deg,#6c63ff,#8b84ff);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#6c63ff">88%</span></div></td>
             <td><span class="badge badge-green">✓ Good</span></td>
           </tr>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">🌐</span>
-                <div>
-                  <div style="font-weight:500">Web Development</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-402</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Reddy</td>
-            <td>50</td>
-            <td style="color:#00d4aa;font-weight:600">46</td>
-            <td style="color:#ff6b6b">4</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:92%;height:100%;background:linear-gradient(90deg,#00d4aa,#00b890);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#00d4aa">92%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">🌐</span><div><div style="font-weight:500">Web Development</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-402</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Reddy</td><td>50</td>
+            <td style="color:#00d4aa;font-weight:600">46</td><td style="color:#ff6b6b">4</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:92%;height:100%;background:linear-gradient(90deg,#00d4aa,#00b890);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#00d4aa">92%</span></div></td>
             <td><span class="badge badge-green">✓ Excellent</span></td>
           </tr>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">🧠</span>
-                <div>
-                  <div style="font-weight:500">Machine Learning</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-501</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Nair</td>
-            <td>50</td>
-            <td style="color:#ffd166;font-weight:600">38</td>
-            <td style="color:#ff6b6b">12</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:75%;height:100%;background:linear-gradient(90deg,#ffd166,#ffb830);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#ffd166">75%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">🧠</span><div><div style="font-weight:500">Machine Learning</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-501</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Nair</td><td>50</td>
+            <td style="color:#ffd166;font-weight:600">38</td><td style="color:#ff6b6b">12</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:75%;height:100%;background:linear-gradient(90deg,#ffd166,#ffb830);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#ffd166">75%</span></div></td>
             <td><span class="badge badge-yellow">⚠ Warning</span></td>
           </tr>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">🗄️</span>
-                <div>
-                  <div style="font-weight:500">Database Management</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-303</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Verma</td>
-            <td>50</td>
-            <td style="color:#ff6b6b;font-weight:600">34</td>
-            <td style="color:#ff6b6b">16</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:68%;height:100%;background:linear-gradient(90deg,#ff6b6b,#ff4848);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#ff6b6b">68%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">🗄️</span><div><div style="font-weight:500">Database Management</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-303</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Verma</td><td>50</td>
+            <td style="color:#ff6b6b;font-weight:600">34</td><td style="color:#ff6b6b">16</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:68%;height:100%;background:linear-gradient(90deg,#ff6b6b,#ff4848);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#ff6b6b">68%</span></div></td>
             <td><span class="badge badge-red">✗ Critical</span></td>
           </tr>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">🔐</span>
-                <div>
-                  <div style="font-weight:500">Cyber Security</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-404</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Pillai</td>
-            <td>50</td>
-            <td style="color:#00d4aa;font-weight:600">40</td>
-            <td style="color:#ff6b6b">10</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:80%;height:100%;background:linear-gradient(90deg,#a78bfa,#7c3aed);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#a78bfa">80%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">🔐</span><div><div style="font-weight:500">Cyber Security</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-404</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Pillai</td><td>50</td>
+            <td style="color:#00d4aa;font-weight:600">40</td><td style="color:#ff6b6b">10</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:80%;height:100%;background:linear-gradient(90deg,#a78bfa,#7c3aed);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#a78bfa">80%</span></div></td>
             <td><span class="badge badge-green">✓ Good</span></td>
           </tr>
           <tr>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <span style="font-size:1.1rem">☁️</span>
-                <div>
-                  <div style="font-weight:500">Cloud Computing</div>
-                  <div style="font-size:0.72rem;color:var(--text-dim)">CSE-502</div>
-                </div>
-              </div>
-            </td>
-            <td style="color:var(--text-dim)">Prof. Iyer</td>
-            <td>45</td>
-            <td style="color:#00d4aa;font-weight:600">38</td>
-            <td style="color:#ff6b6b">7</td>
-            <td>
-              <div style="display:flex;align-items:center;gap:0.6rem">
-                <div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-                  <div style="width:85%;height:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);border-radius:99px"></div>
-                </div>
-                <span style="font-family:'Syne',sans-serif;font-weight:700;color:#38bdf8">85%</span>
-              </div>
-            </td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><span style="font-size:1.1rem">☁️</span><div><div style="font-weight:500">Cloud Computing</div><div style="font-size:0.72rem;color:var(--text-dim)">CSE-502</div></div></div></td>
+            <td style="color:var(--text-dim)">Prof. Iyer</td><td>45</td>
+            <td style="color:#00d4aa;font-weight:600">38</td><td style="color:#ff6b6b">7</td>
+            <td><div style="display:flex;align-items:center;gap:0.6rem"><div style="width:80px;height:6px;background:var(--surface2);border-radius:99px;overflow:hidden"><div style="width:85%;height:100%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);border-radius:99px"></div></div><span style="font-family:'Syne',sans-serif;font-weight:700;color:#38bdf8">85%</span></div></td>
             <td><span class="badge badge-green">✓ Good</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <!-- Minimum required notice -->
     <div style="margin-top:1.5rem;background:rgba(255,209,102,0.08);border:1px solid rgba(255,209,102,0.2);border-radius:12px;padding:1rem 1.4rem;display:flex;align-items:center;gap:0.75rem">
       <span style="font-size:1.2rem">⚠️</span>
       <div>
@@ -934,11 +1076,79 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     PAGE 3 — COMMUNITY CHAT
+     PAGE 3 — CALENDAR
+═══════════════════════════════════════ -->
+<div class="page" id="page-calendar">
+  <div class="calendar-layout">
+    <!-- Main calendar -->
+    <div>
+      <div class="cal-header">
+        <div>
+          <h2 id="calMonthYear">March 2026</h2>
+          <div class="cal-legend" style="margin-top:0.5rem">
+            <div class="legend-item"><div class="legend-dot" style="background:#6c63ff"></div> Class / Lecture</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#ffd166"></div> Quiz / Test</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div> Assignment Due</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#00d4aa"></div> Lab Session</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#38bdf8"></div> Event</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem">
+          <div class="cal-nav-btns">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+            <button class="cal-nav-btn" onclick="goToday()">Today</button>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+          </div>
+          <button class="btn-sm btn-primary" onclick="openModal()">+ Add Event</button>
+        </div>
+      </div>
+
+      <div class="cal-grid">
+        <div class="cal-weekdays">
+          <div class="cal-wd">Sun</div>
+          <div class="cal-wd">Mon</div>
+          <div class="cal-wd">Tue</div>
+          <div class="cal-wd">Wed</div>
+          <div class="cal-wd">Thu</div>
+          <div class="cal-wd">Fri</div>
+          <div class="cal-wd">Sat</div>
+        </div>
+        <div class="cal-days" id="calDays"></div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="cal-sidebar">
+      <!-- Mini calendar -->
+      <div class="mini-cal">
+        <h4>
+          <span id="miniMonthYear"></span>
+          <div style="display:flex;gap:4px">
+            <button class="cal-nav-btn" style="width:24px;height:24px;font-size:0.7rem" onclick="changeMonth(-1)">‹</button>
+            <button class="cal-nav-btn" style="width:24px;height:24px;font-size:0.7rem" onclick="changeMonth(1)">›</button>
+          </div>
+        </h4>
+        <div class="mini-grid" id="miniGrid"></div>
+      </div>
+
+      <!-- Upcoming events -->
+      <div class="events-panel">
+        <h4>
+          <span>📌 Upcoming</span>
+          <span style="font-size:0.7rem;color:var(--text-dim);font-weight:400" id="selectedDateLabel">This week</span>
+        </h4>
+        <div id="upcomingEvents"></div>
+        <button class="add-event-btn" onclick="openModal()">＋ Add New Event</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE 4 — COMMUNITY CHAT
 ═══════════════════════════════════════ -->
 <div class="page" id="page-chat">
   <div class="chat-layout">
-    <!-- Sidebar -->
     <div class="chat-sidebar">
       <h3>Channels</h3>
       <div class="channel active" onclick="switchChannel(this,'General')">
@@ -961,7 +1171,6 @@
       <div class="channel" onclick="switchChannel(this,'Off-topic')">
         <div class="channel-dot" style="background:#ff6b6b"></div> # off-topic
       </div>
-
       <h3 style="margin-top:1.5rem">Online — 24</h3>
       <div style="display:flex;flex-direction:column;gap:0.4rem">
         <div style="display:flex;align-items:center;gap:0.5rem;padding:0.35rem 0.5rem;font-size:0.8rem">
@@ -986,8 +1195,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Chat main -->
     <div class="chat-main">
       <div class="chat-topbar">
         <div>
@@ -995,9 +1202,7 @@
           <span>LeapStart Community — Open discussion for all members</span>
         </div>
       </div>
-
       <div class="messages" id="messages">
-
         <div class="message">
           <div class="msg-avatar" style="background:linear-gradient(135deg,#00d4aa,#00b890)">PK</div>
           <div class="msg-content">
@@ -1005,7 +1210,6 @@
             <div class="msg-bubble">Hey everyone! Anyone else finding the ML assignment tough? 😅</div>
           </div>
         </div>
-
         <div class="message">
           <div class="msg-avatar" style="background:linear-gradient(135deg,#ffd166,#ffb830)">VS</div>
           <div class="msg-content">
@@ -1013,7 +1217,6 @@
             <div class="msg-bubble">Yeah the gradient descent part is tricky. I watched 3 YT videos and it finally clicked 😂</div>
           </div>
         </div>
-
         <div class="message">
           <div class="msg-avatar" style="background:linear-gradient(135deg,#6c63ff,#8b84ff)">AR</div>
           <div class="msg-content">
@@ -1021,7 +1224,6 @@
             <div class="msg-bubble">Same! Also try the AI tutor on the AI Tools page — it explains concepts really well. I used it for backpropagation 🔥</div>
           </div>
         </div>
-
         <div class="message">
           <div class="msg-avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">NM</div>
           <div class="msg-content">
@@ -1029,7 +1231,6 @@
             <div class="msg-bubble">Also reminder — DSA quiz is TOMORROW at 11am. Prof Sharma posted the syllabus in resources channel 📚</div>
           </div>
         </div>
-
         <div class="message own">
           <div class="msg-avatar" style="background:linear-gradient(135deg,#38bdf8,#0ea5e9)">ME</div>
           <div class="msg-content">
@@ -1037,9 +1238,7 @@
             <div class="msg-bubble own">Thanks Neha! Will check it out now. Also the LeapStart AI summarizer is super helpful for revision 🚀</div>
           </div>
         </div>
-
       </div>
-
       <div class="chat-input-area">
         <div class="chat-input-box">
           <span style="color:var(--text-muted);font-size:1rem">✏️</span>
@@ -1052,7 +1251,7 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     PAGE 4 — AI TOOLS
+     PAGE 5 — AI TOOLS
 ═══════════════════════════════════════ -->
 <div class="page" id="page-aitools">
   <div class="page-inner">
@@ -1060,9 +1259,7 @@
       <h2>🤖 AI Tools</h2>
       <p>Supercharge your learning with AI-powered study assistants and productivity tools</p>
     </div>
-
     <div class="tools-grid" style="margin-bottom:2.5rem">
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(108,99,255,0.15)">🤖</div>
         <h3>AI Study Tutor</h3>
@@ -1072,7 +1269,6 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#6c63ff,#8b84ff);color:#fff" onclick="scrollToChat()">Launch →</button>
         </div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(0,212,170,0.12)">📝</div>
         <h3>Smart Summarizer</h3>
@@ -1082,7 +1278,6 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#00d4aa,#00b890);color:#fff">Use Tool →</button>
         </div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(255,209,102,0.12)">📊</div>
         <h3>Attendance Predictor</h3>
@@ -1092,7 +1287,6 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#ffd166,#ffb830);color:#0a0b0f">Predict →</button>
         </div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(255,107,107,0.12)">🎯</div>
         <h3>Quiz Generator</h3>
@@ -1102,7 +1296,6 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#ff6b6b,#ff4848);color:#fff">Generate →</button>
         </div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(167,139,250,0.12)">📅</div>
         <h3>Study Planner</h3>
@@ -1112,7 +1305,6 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff">Plan Now →</button>
         </div>
       </div>
-
       <div class="tool-card">
         <div class="tool-icon" style="background:rgba(56,189,248,0.12)">💡</div>
         <h3>Concept Mind Map</h3>
@@ -1122,10 +1314,7 @@
           <button class="btn-tool" style="background:linear-gradient(135deg,#38bdf8,#0ea5e9);color:#fff">Map It →</button>
         </div>
       </div>
-
     </div>
-
-    <!-- AI Chat Assistant -->
     <p class="section-title" style="margin-bottom:1rem">💬 AI Study Assistant — Ask Anything</p>
     <div style="display:grid;grid-template-columns:1fr 300px;gap:1.5rem;align-items:start">
       <div class="ai-chat-box">
@@ -1145,7 +1334,6 @@
           <button class="ai-send" onclick="sendAI()">➤</button>
         </div>
       </div>
-
       <div style="display:flex;flex-direction:column;gap:0.75rem">
         <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.1rem">
           <div style="font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:0.8rem">Quick Prompts</div>
@@ -1162,6 +1350,47 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     ADD EVENT MODAL
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <h3>📌 Add New Event</h3>
+    <div class="form-group">
+      <label>Event Title</label>
+      <input type="text" id="evTitle" placeholder="e.g. DSA Quiz, ML Assignment Due..."/>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="evDate"/>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time" id="evTime"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select id="evCat">
+        <option value="purple">📚 Class / Lecture</option>
+        <option value="yellow">📝 Quiz / Test</option>
+        <option value="red">🔴 Assignment Due</option>
+        <option value="green">🧪 Lab Session</option>
+        <option value="blue">🎉 Event / Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Note (optional)</label>
+      <textarea id="evNote" rows="2" placeholder="Any additional details..." style="resize:none"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-sm btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn-sm btn-primary" onclick="addEvent()">Add Event</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ─── PAGE NAVIGATION ───
 function showPage(id) {
@@ -1169,6 +1398,232 @@ function showPage(id) {
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   document.getElementById('nav-' + id).classList.add('active');
+  if (id === 'calendar') renderCalendar();
+}
+
+// ─── CALENDAR STATE ───
+const today = new Date();
+let curYear = today.getFullYear();
+let curMonth = today.getMonth(); // 0-indexed
+let selectedDay = null;
+
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WDAYS  = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+// Default events seeded for March 2026
+let events = {
+  '2026-3-3':  [{ title: 'DSA Lecture', type: 'purple', time: '10:00' }],
+  '2026-3-5':  [{ title: 'ML Lab Session', type: 'green', time: '14:00' }, { title: 'Web Dev Class', type: 'purple', time: '11:00' }],
+  '2026-3-7':  [{ title: 'DBMS Assignment Due', type: 'red', time: '23:59' }],
+  '2026-3-10': [{ title: 'Cyber Security Quiz', type: 'yellow', time: '11:00' }],
+  '2026-3-12': [{ title: 'Cloud Computing Lab', type: 'green', time: '09:00' }],
+  '2026-3-14': [{ title: 'Mid-Semester Exams Begin', type: 'blue', time: '09:00' }],
+  '2026-3-17': [{ title: 'DSA Mid Exam', type: 'yellow', time: '10:00' }, { title: 'ML Assignment Due', type: 'red', time: '18:00' }],
+  '2026-3-19': [{ title: 'Web Dev Project Review', type: 'blue', time: '14:00' }],
+  '2026-3-21': [{ title: 'DBMS Mid Exam', type: 'yellow', time: '10:00' }],
+  '2026-3-24': [{ title: 'Cloud Computing Lecture', type: 'purple', time: '09:00' }],
+  '2026-3-26': [{ title: 'Cyber Security Lab', type: 'green', time: '14:00' }],
+  '2026-3-28': [{ title: 'Today — DSA Lecture', type: 'purple', time: '10:00' }, { title: 'Community Event', type: 'blue', time: '17:00' }],
+  '2026-3-31': [{ title: 'Semester End Review', type: 'blue', time: '11:00' }],
+};
+
+function eventKey(y, m, d) { return `${y}-${m+1}-${d}`; }
+
+function typeClass(t) {
+  return { purple:'ev-purple', green:'ev-green', yellow:'ev-yellow', red:'ev-red', blue:'ev-blue' }[t] || 'ev-purple';
+}
+
+function dotColor(t) {
+  return { purple:'#6c63ff', green:'#00d4aa', yellow:'#ffd166', red:'#ff6b6b', blue:'#38bdf8' }[t] || '#6c63ff';
+}
+
+function renderCalendar() {
+  renderMainCal();
+  renderMiniCal();
+  renderUpcoming();
+}
+
+function renderMainCal() {
+  document.getElementById('calMonthYear').textContent = MONTHS[curMonth] + ' ' + curYear;
+
+  const firstDay = new Date(curYear, curMonth, 1).getDay();
+  const daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+  const daysInPrev = new Date(curYear, curMonth, 0).getDate();
+
+  let html = '';
+  let totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+
+  for (let i = 0; i < totalCells; i++) {
+    let day, month = curMonth, year = curYear, isOther = false;
+    if (i < firstDay) {
+      day = daysInPrev - firstDay + 1 + i;
+      month = curMonth - 1; year = curYear;
+      if (month < 0) { month = 11; year--; }
+      isOther = true;
+    } else if (i - firstDay >= daysInMonth) {
+      day = i - firstDay - daysInMonth + 1;
+      month = curMonth + 1; year = curYear;
+      if (month > 11) { month = 0; year++; }
+      isOther = true;
+    } else {
+      day = i - firstDay + 1;
+    }
+
+    const isToday = !isOther && day === today.getDate() && curMonth === today.getMonth() && curYear === today.getFullYear();
+    const isSelected = selectedDay && !isOther && day === selectedDay;
+    const key = eventKey(year, month, day);
+    const dayEvents = events[key] || [];
+
+    let cls = 'cal-day';
+    if (isOther) cls += ' other-month';
+    if (isToday) cls += ' today';
+    if (isSelected) cls += ' selected';
+
+    let evHtml = dayEvents.slice(0, 2).map(e =>
+      `<div class="cal-event ${typeClass(e.type)}">${e.title}</div>`
+    ).join('');
+    if (dayEvents.length > 2) evHtml += `<div class="cal-event" style="color:var(--text-dim);background:transparent;font-size:0.6rem">+${dayEvents.length-2} more</div>`;
+
+    html += `<div class="${cls}" onclick="selectDay(${day},${month},${year},${isOther})">`
+           + `<div class="day-num">${day}</div>${evHtml}</div>`;
+  }
+
+  document.getElementById('calDays').innerHTML = html;
+}
+
+function renderMiniCal() {
+  document.getElementById('miniMonthYear').textContent = MONTHS[curMonth].slice(0,3) + ' ' + curYear;
+
+  const firstDay = new Date(curYear, curMonth, 1).getDay();
+  const daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+  const daysInPrev = new Date(curYear, curMonth, 0).getDate();
+
+  let html = WDAYS.map(d => `<div class="mini-wd">${d}</div>`).join('');
+  let totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+
+  for (let i = 0; i < totalCells; i++) {
+    let day, year = curYear, month = curMonth, isOther = false;
+    if (i < firstDay) { day = daysInPrev - firstDay + 1 + i; isOther = true; }
+    else if (i - firstDay >= daysInMonth) { day = i - firstDay - daysInMonth + 1; isOther = true; }
+    else { day = i - firstDay + 1; }
+
+    const isToday = !isOther && day === today.getDate() && curMonth === today.getMonth() && curYear === today.getFullYear();
+    const key = eventKey(year, month, day);
+    const hasEv = !isOther && events[key] && events[key].length > 0;
+
+    let cls = 'mini-day';
+    if (isOther) cls += ' other';
+    if (isToday) cls += ' today';
+    if (hasEv) cls += ' has-event';
+
+    html += `<div class="${cls}" onclick="selectDay(${day},${curMonth},${curYear},${isOther})">${day}</div>`;
+  }
+
+  document.getElementById('miniGrid').innerHTML = html;
+}
+
+function renderUpcoming() {
+  const container = document.getElementById('upcomingEvents');
+  // Collect upcoming events from today onward
+  const upcoming = [];
+  for (const [key, evs] of Object.entries(events)) {
+    const [y, m, d] = key.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    if (date >= new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+      evs.forEach(e => upcoming.push({ ...e, date, label: `${MONTHS[m-1].slice(0,3)} ${d}` }));
+    }
+  }
+  upcoming.sort((a, b) => a.date - b.date);
+
+  if (upcoming.length === 0) {
+    container.innerHTML = `<div style="color:var(--text-dim);font-size:0.8rem;text-align:center;padding:1rem">No upcoming events</div>`;
+    return;
+  }
+
+  container.innerHTML = upcoming.slice(0, 6).map(e => `
+    <div class="event-item">
+      <div class="event-dot" style="background:${dotColor(e.type)}"></div>
+      <div class="event-info">
+        <div class="ev-title">${e.title}</div>
+        <div class="ev-time">${e.label} · ${e.time || 'All day'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectDay(day, month, year, isOther) {
+  if (isOther) { curMonth = month; curYear = year; renderCalendar(); return; }
+  selectedDay = day;
+  renderMainCal();
+
+  const key = eventKey(curYear, curMonth, day);
+  const dayEvents = events[key] || [];
+  const container = document.getElementById('upcomingEvents');
+  const label = document.getElementById('selectedDateLabel');
+  label.textContent = `${MONTHS[curMonth].slice(0,3)} ${day}`;
+
+  if (dayEvents.length === 0) {
+    container.innerHTML = `<div style="color:var(--text-dim);font-size:0.8rem;text-align:center;padding:1rem">No events this day</div>`;
+    return;
+  }
+
+  container.innerHTML = dayEvents.map(e => `
+    <div class="event-item">
+      <div class="event-dot" style="background:${dotColor(e.type)}"></div>
+      <div class="event-info">
+        <div class="ev-title">${e.title}</div>
+        <div class="ev-time">${e.time || 'All day'}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function changeMonth(dir) {
+  curMonth += dir;
+  if (curMonth > 11) { curMonth = 0; curYear++; }
+  if (curMonth < 0)  { curMonth = 11; curYear--; }
+  selectedDay = null;
+  renderCalendar();
+}
+
+function goToday() {
+  curMonth = today.getMonth(); curYear = today.getFullYear();
+  selectedDay = today.getDate();
+  renderCalendar();
+}
+
+// ─── MODAL ───
+function openModal() {
+  const today_str = new Date().toISOString().split('T')[0];
+  document.getElementById('evDate').value = today_str;
+  document.getElementById('evTime').value = '09:00';
+  document.getElementById('evTitle').value = '';
+  document.getElementById('evNote').value = '';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function addEvent() {
+  const title = document.getElementById('evTitle').value.trim();
+  const date  = document.getElementById('evDate').value;
+  const time  = document.getElementById('evTime').value;
+  const cat   = document.getElementById('evCat').value;
+  if (!title || !date) return;
+
+  const [y, m, d] = date.split('-').map(Number);
+  const key = `${y}-${m}-${d}`;
+  if (!events[key]) events[key] = [];
+  events[key].push({ title, type: cat, time });
+
+  closeModal();
+  renderCalendar();
 }
 
 // ─── CHAT ───
@@ -1198,12 +1653,12 @@ function sendMsg() {
 
 // ─── AI CHAT ───
 const aiResponses = {
-  'binary': '🌳 A Binary Search Tree (BST) is a tree where each node has at most two children. The left child is always smaller than the parent, and the right child is always larger. This property makes search operations O(log n) on average. Example: Insert 5, 3, 7 → 3 is left of 5, 7 is right of 5.',
-  'gradient': '📉 Gradient Descent is an optimization algorithm used to minimize the loss function in ML. It works by iteratively moving in the direction of steepest descent (negative gradient). Formula: θ = θ - α∇J(θ), where α is the learning rate. Types: Batch, Stochastic (SGD), and Mini-Batch.',
-  'sql': '🔗 SQL Joins combine rows from two or more tables:\n• INNER JOIN — rows matching in both tables\n• LEFT JOIN — all rows from left + matching from right\n• RIGHT JOIN — all rows from right + matching from left\n• FULL JOIN — all rows from both tables\nExample: SELECT * FROM students INNER JOIN grades ON students.id = grades.student_id',
-  'cloud': '☁️ Cloud Elasticity is the ability of a cloud system to automatically scale resources up or down based on demand. Unlike scalability (planned growth), elasticity is dynamic. Example: AWS Auto Scaling adds EC2 instances during traffic spikes and removes them when traffic drops — you only pay for what you use!',
-  'xss': '🔐 Cross-Site Scripting (XSS) is a web vulnerability where attackers inject malicious scripts into trusted websites. Types:\n• Stored XSS — script is saved in database\n• Reflected XSS — script in URL\n• DOM-based XSS — manipulates client-side DOM\nPrevention: Input validation, Content Security Policy (CSP), sanitize user inputs.',
-  'default': '🤔 Great question! I\'m processing your query. For in-depth help on this topic, I recommend checking the Resources channel or using the Smart Summarizer tool. What specific aspect would you like me to explain further?'
+  'binary': '🌳 A Binary Search Tree (BST) is a tree where each node has at most two children. The left child is always smaller than the parent, and the right child is always larger. This property makes search operations O(log n) on average.',
+  'gradient': '📉 Gradient Descent is an optimization algorithm used to minimize the loss function in ML. Formula: θ = θ - α∇J(θ), where α is the learning rate. Types: Batch, Stochastic (SGD), and Mini-Batch.',
+  'sql': '🔗 SQL Joins combine rows: INNER JOIN (matching rows), LEFT JOIN (all from left + matching right), RIGHT JOIN (all from right + matching left), FULL JOIN (all rows from both).',
+  'cloud': '☁️ Cloud Elasticity is the ability to automatically scale resources up/down based on demand. Example: AWS Auto Scaling adds EC2 instances during traffic spikes and removes them when traffic drops.',
+  'xss': '🔐 Cross-Site Scripting (XSS) injects malicious scripts into trusted websites. Types: Stored, Reflected, DOM-based. Prevention: Input validation, CSP headers, sanitize user inputs.',
+  'default': '🤔 Great question! For in-depth help, try the Smart Summarizer tool or check the Resources channel. What specific aspect would you like me to explain further?'
 };
 
 function getAIResponse(msg) {
@@ -1221,22 +1676,16 @@ function sendAI() {
   const val = input.value.trim();
   if (!val) return;
   const msgs = document.getElementById('aiMessages');
-
-  // User msg
   const userDiv = document.createElement('div');
   userDiv.className = 'ai-msg user';
   userDiv.textContent = val;
   msgs.appendChild(userDiv);
-
   input.value = '';
-
-  // Typing indicator
   const typing = document.createElement('div');
   typing.className = 'ai-msg bot';
   typing.textContent = '⏳ Thinking...';
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
-
   setTimeout(() => {
     typing.textContent = getAIResponse(val);
     msgs.scrollTop = msgs.scrollHeight;
@@ -1248,9 +1697,10 @@ function quickPrompt(txt) {
   sendAI();
 }
 
-function scrollToChat() {
-  document.getElementById('aiMessages').scrollTop = 0;
-}
+function scrollToChat() {}
+
+// Init calendar with today highlighted
+goToday();
 </script>
 </body>
 </html>
